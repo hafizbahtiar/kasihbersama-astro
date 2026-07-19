@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+	{
+		title: 'Bulatan Penjagaan',
+		description:
+			'Jemput ahli keluarga untuk berkongsi tanggungjawab menjaga orang tersayang, dalam satu bulatan.',
+	},
+	{
+		title: 'Log Penjagaan',
+		description:
+			'Rekod aktiviti harian — makan, tidur, mood, dan lain-lain — supaya semua ahli keluarga sentiasa terkini.',
+	},
+	{
+		title: 'Ubat & Peringatan',
+		description:
+			'Jejak jadual ubat dan tandakan bila sudah diambil, tanpa tertinggal satu dos pun.',
+	},
+	{
+		title: 'Temujanji & Dokumen',
+		description:
+			'Simpan temujanji perubatan dan dokumen penting di satu tempat yang selamat dan mudah dicapai.',
+	},
+];
+---
+
+<Layout>
+	<header class="nav">
+		<div class="nav-inner">
+			<span class="wordmark">KasihBersama</span>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<h1>Kongsikan penjagaan dengan keluarga</h1>
+			<p class="subtitle">
+				KasihBersama membantu keluarga menyelaraskan penjagaan orang
+				tersayang — log harian, ubat, temujanji, dan dokumen, semua dalam
+				satu tempat.
+			</p>
+			<span class="badge">Akan datang di App Store & Google Play</span>
+		</section>
+
+		<section class="features">
+			{
+				features.map((f) => (
+					<div class="feature-card">
+						<h2>{f.title}</h2>
+						<p>{f.description}</p>
+					</div>
+				))
+			}
+		</section>
+	</main>
+
+	<footer class="footer">
+		<p>&copy; {new Date().getFullYear()} KasihBersama</p>
+	</footer>
+</Layout>
+
+<style>
+	.nav {
+		border-bottom: 1px solid var(--color-border);
+		background: white;
+	}
+
+	.nav-inner {
+		max-width: 1080px;
+		margin: 0 auto;
+		padding: 20px 24px;
+	}
+
+	.wordmark {
+		font-size: 18px;
+		font-weight: 700;
+		color: var(--color-primary);
+	}
+
+	.hero {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 96px 24px 64px;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 40px;
+		font-weight: 700;
+		line-height: 1.2;
+		margin: 0 0 16px;
+		color: var(--color-text-primary);
+	}
+
+	.subtitle {
+		font-size: 17px;
+		line-height: 1.6;
+		color: var(--color-text-secondary);
+		margin: 0 0 28px;
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 10px 20px;
+		border-radius: 999px;
+		background: var(--color-primary-light);
+		color: var(--color-primary);
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	.features {
+		max-width: 1080px;
+		margin: 0 auto;
+		padding: 0 24px 96px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 20px;
+	}
+
+	.feature-card {
+		background: white;
+		border: 1px solid var(--color-border);
+		border-radius: 20px;
+		padding: 24px;
+	}
+
+	.feature-card h2 {
+		font-size: 16px;
+		font-weight: 600;
+		margin: 0 0 8px;
+		color: var(--color-text-primary);
+	}
+
+	.feature-card p {
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--color-text-secondary);
+		margin: 0;
+	}
+
+	.footer {
+		border-top: 1px solid var(--color-border);
+		padding: 24px;
+		text-align: center;
+	}
+
+	.footer p {
+		font-size: 13px;
+		color: var(--color-text-secondary);
+		margin: 0;
+	}
+</style>

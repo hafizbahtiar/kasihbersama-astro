@@ -1,0 +1,64 @@
+---
+import { apiBaseUrl, mode } from '../lib/config';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'KasihBersama — Kongsikan penjagaan dengan keluarga',
+	description = 'KasihBersama membantu keluarga menyelaraskan penjagaan orang tersayang — log harian, ubat, temujanji, dan dokumen, semua dalam satu tempat.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="ms">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="kb-build" content={`mode=${mode} api=${apiBaseUrl}`} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-primary: #00695c;
+		--color-primary-light: #e0f2f1;
+		--color-text-primary: #1a1a2e;
+		--color-text-secondary: #64748b;
+		--color-surface: #f8fafb;
+		--color-border: #e2e8f0;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		min-height: 100%;
+	}
+
+	body {
+		font-family: 'Poppins', system-ui, sans-serif;
+		color: var(--color-text-primary);
+		background: var(--color-surface);
+	}
+</style>
