@@ -92,17 +92,21 @@ for the readiness plan this repo is part of.
   decided) and point `kasihbersama.com` DNS at it. Also wire the `api`
   subdomain's DNS + Railway custom domain so `.env.production`'s
   `PUBLIC_API_BASE_URL` actually resolves (currently just the intended
-  value, unconfirmed).
-- [ ] **CORS on staging** — `OPTIONS /api/v1/auth/verify-email` against
-  `kasihbersama-backend-staging.up.railway.app` with
-  `Origin: http://localhost:4321` returns no
-  `Access-Control-Allow-Origin` header today (checked 2026-07-19), so the
-  two pages below can't actually complete a browser `fetch` against
-  staging yet — confirmed at the curl/API level only. Needs the Astro
-  dev origin (and later the real deployed origin) added to the backend's
-  `CORS_ALLOWED_ORIGINS` Railway env var (`kasihbersama-backend`
-  repo/infra, not a file here) before an end-to-end browser test is
-  possible.
+  value, unconfirmed). Wrangler config already exists for Cloudflare
+  Workers (`wrangler.jsonc` with staging env), `npm run deploy` / `npm run
+  deploy:staging` scripts ready.
+- [x] **CORS on staging** — fixed 2026-07-20. Backend was missing
+  `APP_ENV` (defaulted to `development`, skipping the CORS fail-closed
+  check) and `CORS_ALLOWED_ORIGINS` (empty, so no `Access-Control-Allow-Origin`
+  header returned). Set `APP_ENV=staging` and
+  `CORS_ALLOWED_ORIGINS=http://localhost:4321,https://kasihbersama.com`
+  via `railway variables set`. Verified: preflight `OPTIONS` against
+  staging returns `access-control-allow-origin: http://localhost:4321`
+  for `localhost:4321` and rejects `evil.example.com`. Actual `POST`
+  also carries the header. **Once the astro staging site is deployed
+  to Cloudflare Workers**, its `.workers.dev` origin must be added to
+  `CORS_ALLOWED_ORIGINS` on Railway staging (the exact URL depends on
+  the Cloudflare account ID, which isn't known yet).
 - [x] **`/verify-email` page** (`src/pages/verify-email.astro`, shares
   chrome with `src/layouts/AuthLayout.astro`) — reads `?token=` from the
   query string client-side (static output, no SSR — must run in-browser),
@@ -141,9 +145,14 @@ for the readiness plan this repo is part of.
   `kasihbersama-backend` still build links off `PublicAPIBaseURL` (the
   raw API host, JSON only), so a user clicking the email link today never
   reaches these pages at all. Needs a small backend change (new
-  `PublicWebBaseURL`-style config pointing here, or repointing the
+  `PublicWebBaseURL`-style config pointing here, or repurposing the
   existing var) — tracked as open in the stack-split spec's Non-goals;
-  not done in this session, backend repo's call.
+  not done in this session, backend repo's call. **Flutter app now has
+  staging deep link registration** for the backend's staging domain
+  (`kasihbersama-backend-staging.up.railway.app`), so once the backend
+  adds `PublicWebBaseURL` pointing at the astro staging URL, the full
+  flow (email → tap → OS opens app or falls back to astro page) will
+  work end-to-end on staging.
 - [ ] **Name a registered legal entity in Privacy/Terms** — `/privacy` and
   `/terms` currently name no company, just the contact email
   `hafiz@hafizbahtiar.com` (deliberate per the 2026-07-19 spec — no entity

@@ -16,8 +16,7 @@ import { apiBaseUrl } from "../lib/config";
 		<div class="icon icon-success" aria-hidden="true">✓</div>
 		<h1>Emel disahkan</h1>
 		<p>
-			Akaun anda kini aktif sepenuhnya. Buka aplikasi KasihBersama untuk
-			teruskan.
+			Mengarahkan anda ke halaman seterusnya&hellip;
 		</p>
 	</div>
 
@@ -31,7 +30,7 @@ import { apiBaseUrl } from "../lib/config";
 	</div>
 </AuthLayout>
 
-<script define:vars={{ apiBaseUrl }}>
+<script is:inline define:vars={{ apiBaseUrl }}>
 	const params = new URLSearchParams(window.location.search);
 	const token = params.get("token");
 
@@ -59,7 +58,7 @@ import { apiBaseUrl } from "../lib/config";
 		})
 			.then(async (res) => {
 				if (res.ok) {
-					show(success);
+					window.location.href = "/email-verified";
 					return;
 				}
 				const data = await res.json().catch(() => null);
