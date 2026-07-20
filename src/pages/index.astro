@@ -1,52 +1,57 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
 
 const features = [
 	{
+		icon: '👪',
 		title: 'Bulatan Penjagaan',
 		description:
 			'Jemput ahli keluarga untuk berkongsi tanggungjawab menjaga orang tersayang, dalam satu bulatan.',
 	},
 	{
+		icon: '📝',
 		title: 'Log Penjagaan',
 		description:
 			'Rekod aktiviti harian — makan, tidur, mood, dan lain-lain — supaya semua ahli keluarga sentiasa terkini.',
 	},
 	{
+		icon: '💊',
 		title: 'Ubat & Peringatan',
 		description:
 			'Jejak jadual ubat dan tandakan bila sudah diambil, tanpa tertinggal satu dos pun.',
 	},
 	{
+		icon: '📄',
 		title: 'Temujanji & Dokumen',
 		description:
 			'Simpan temujanji perubatan dan dokumen penting di satu tempat yang selamat dan mudah dicapai.',
 	},
 ];
+
+const trustPoints = ['🔒 Data disulitkan', '🇲🇾 Patuh PDPA Malaysia', '🙅 Tiada jualan data'];
 ---
 
-<Layout>
-	<header class="nav">
-		<div class="nav-inner">
-			<span class="wordmark">KasihBersama</span>
-		</div>
-	</header>
-
+<SiteLayout>
 	<main>
 		<section class="hero">
+			<span class="badge">Akan datang di App Store & Google Play</span>
 			<h1>Kongsikan penjagaan dengan keluarga</h1>
 			<p class="subtitle">
 				KasihBersama membantu keluarga menyelaraskan penjagaan orang
 				tersayang — log harian, ubat, temujanji, dan dokumen, semua dalam
 				satu tempat.
 			</p>
-			<span class="badge">Akan datang di App Store & Google Play</span>
 		</section>
 
-		<section class="features">
+		<section class="trust-strip">
+			{trustPoints.map((point) => <span class="pill">{point}</span>)}
+		</section>
+
+		<section class="features" id="ciri-ciri">
 			{
 				features.map((f) => (
 					<div class="feature-card">
+						<div class="icon-badge">{f.icon}</div>
 						<h2>{f.title}</h2>
 						<p>{f.description}</p>
 					</div>
@@ -54,42 +59,39 @@ const features = [
 			}
 		</section>
 	</main>
-
-	<footer class="footer">
-		<p>&copy; {new Date().getFullYear()} KasihBersama</p>
-	</footer>
-</Layout>
+</SiteLayout>
 
 <style>
-	.nav {
-		border-bottom: 1px solid var(--color-border);
-		background: white;
-	}
-
-	.nav-inner {
-		max-width: 1080px;
-		margin: 0 auto;
-		padding: 20px 24px;
-	}
-
-	.wordmark {
-		font-size: 18px;
-		font-weight: 700;
-		color: var(--color-primary);
-	}
-
 	.hero {
 		max-width: 720px;
 		margin: 0 auto;
-		padding: 96px 24px 64px;
+		padding: 96px 24px 48px;
 		text-align: center;
+		background: radial-gradient(
+			ellipse 80% 60% at 50% 0%,
+			var(--color-primary-light) 0%,
+			transparent 70%
+		);
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 10px 20px;
+		border-radius: 999px;
+		background: white;
+		border: 1px solid #cfe8e6;
+		color: var(--color-primary);
+		font-size: 14px;
+		font-weight: 600;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 	}
 
 	.hero h1 {
 		font-size: 40px;
 		font-weight: 700;
 		line-height: 1.2;
-		margin: 0 0 16px;
+		letter-spacing: -0.4px;
+		margin: 20px 0 16px;
 		color: var(--color-text-primary);
 	}
 
@@ -97,17 +99,24 @@ const features = [
 		font-size: 17px;
 		line-height: 1.6;
 		color: var(--color-text-secondary);
-		margin: 0 0 28px;
+		margin: 0;
 	}
 
-	.badge {
-		display: inline-block;
-		padding: 10px 20px;
-		border-radius: 999px;
+	.trust-strip {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px;
+		padding: 8px 24px 40px;
+	}
+
+	.pill {
+		font-size: 12px;
+		font-weight: 500;
+		color: var(--color-text-primary);
 		background: var(--color-primary-light);
-		color: var(--color-primary);
-		font-size: 14px;
-		font-weight: 600;
+		border-radius: 999px;
+		padding: 8px 16px;
 	}
 
 	.features {
@@ -117,6 +126,7 @@ const features = [
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 		gap: 20px;
+		scroll-margin-top: 80px;
 	}
 
 	.feature-card {
@@ -124,6 +134,26 @@ const features = [
 		border: 1px solid var(--color-border);
 		border-radius: 20px;
 		padding: 24px;
+		transition:
+			box-shadow 0.15s ease,
+			transform 0.15s ease;
+	}
+
+	.feature-card:hover {
+		box-shadow: 0 8px 20px rgba(0, 105, 92, 0.1);
+		transform: translateY(-2px);
+	}
+
+	.icon-badge {
+		width: 40px;
+		height: 40px;
+		border-radius: 10px;
+		background: var(--color-primary-light);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 18px;
+		margin-bottom: 14px;
 	}
 
 	.feature-card h2 {
@@ -136,18 +166,6 @@ const features = [
 	.feature-card p {
 		font-size: 14px;
 		line-height: 1.6;
-		color: var(--color-text-secondary);
-		margin: 0;
-	}
-
-	.footer {
-		border-top: 1px solid var(--color-border);
-		padding: 24px;
-		text-align: center;
-	}
-
-	.footer p {
-		font-size: 13px;
 		color: var(--color-text-secondary);
 		margin: 0;
 	}

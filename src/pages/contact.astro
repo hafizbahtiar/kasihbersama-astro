@@ -1,0 +1,61 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Hubungi Kami — KasihBersama" description="Hubungi pasukan KasihBersama.">
+	<main class="prose-page">
+		<article class="prose">
+			<h1>Hubungi Kami</h1>
+			<p>
+				Ada soalan, maklum balas, atau nak laporkan isu privasi? Kami
+				sedia membantu.
+			</p>
+			<a class="contact-email" href="mailto:hafiz@hafizbahtiar.com">hafiz@hafizbahtiar.com</a>
+			<p class="note">Kami akan cuba membalas secepat mungkin.</p>
+		</article>
+	</main>
+</SiteLayout>
+
+<style>
+	.prose-page {
+		display: flex;
+		justify-content: center;
+		padding: 64px 24px 96px;
+	}
+
+	.prose {
+		width: 100%;
+		max-width: 680px;
+		text-align: center;
+	}
+
+	.prose h1 {
+		font-size: 30px;
+		font-weight: 700;
+		margin: 0 0 16px;
+		color: var(--color-text-primary);
+	}
+
+	.prose p {
+		font-size: 15px;
+		line-height: 1.7;
+		color: var(--color-text-secondary);
+		margin: 0 0 24px;
+	}
+
+	.contact-email {
+		display: inline-block;
+		font-size: 20px;
+		font-weight: 600;
+		color: var(--color-primary);
+		background: var(--color-primary-light);
+		border-radius: 999px;
+		padding: 14px 28px;
+		text-decoration: none;
+	}
+
+	.note {
+		margin-top: 20px;
+		font-size: 13px;
+	}
+</style>

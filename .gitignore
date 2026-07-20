@@ -27,6 +27,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# superpowers brainstorming scratch (mockups, not product content)
+.superpowers/
+
 .env
 .env.staging
 .env.production

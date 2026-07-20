@@ -1,0 +1,7 @@
+{
+  "_comment": "Placeholder — not real yet. Replace `applinks.details` with the real Apple Team ID + bundle ID (com.kasihbersama, see kasihbersama_flutter/ios/Runner.xcodeproj/project.pbxproj) once the Apple Developer account's Team ID is known. See kasihbersama-backend/docs/superpowers/plans/2026-07-19-web-frontend-stack-split.md Task 5, Step 2.",
+  "applinks": {
+    "apps": [],
+    "details": []
+  }
+}

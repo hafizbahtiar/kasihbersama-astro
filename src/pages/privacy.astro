@@ -1,0 +1,182 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+	title="Dasar Privasi — KasihBersama"
+	description="Bagaimana KasihBersama mengumpul, menggunakan, dan melindungi data anda."
+>
+	<main class="prose-page">
+		<article class="prose">
+			<h1>Dasar Privasi</h1>
+			<p class="updated">Kemas kini terakhir: 19 Julai 2026</p>
+
+			<p>
+				KasihBersama ("kami") menghormati privasi anda. Dasar ini
+				menerangkan data yang kami kumpul, sebab kami mengumpulnya, dan
+				bagaimana anda boleh mengawalnya.
+			</p>
+
+			<h2>Apa data yang kami kumpul</h2>
+			<ul>
+				<li>
+					<strong>Maklumat akaun:</strong> e-mel, nama paparan, kata laluan
+					(disulitkan, bukan disimpan sebagai teks biasa).
+				</li>
+				<li>
+					<strong>Data penjagaan:</strong> log harian, ubat, jadual ubat,
+					temujanji, tanda vital, dan nota berkaitan kesihatan yang anda
+					atau ahli keluarga masukkan untuk sesuatu profil penjagaan.
+				</li>
+				<li>
+					<strong>Dokumen dimuat naik:</strong> gambar dan dokumen (seperti
+					preskripsi) yang anda lampirkan pada profil penjagaan.
+				</li>
+				<li>
+					<strong>Token peranti:</strong> untuk menghantar notifikasi push
+					(peringatan ubat, temujanji), jika anda membenarkannya.
+				</li>
+			</ul>
+
+			<h2>Kenapa kami mengumpul data ini</h2>
+			<p>
+				Kami menggunakan data ini semata-mata untuk menyediakan
+				perkhidmatan KasihBersama — menyelaraskan penjagaan antara ahli
+				keluarga, menghantar peringatan, dan memaparkan kad kecemasan
+				apabila diberi kebenaran. Kami tidak menggunakan data penjagaan
+				anda untuk pengiklanan.
+			</p>
+
+			<h2>Perkongsian dengan pihak ketiga</h2>
+			<p>
+				Kami menggunakan pembekal berikut untuk menjalankan perkhidmatan
+				(sebagai pemproses data, bukan untuk menjual data anda):
+			</p>
+			<ul>
+				<li><strong>Resend</strong> — penghantaran e-mel (pengesahan akaun, tetapan semula kata laluan, jemputan).</li>
+				<li><strong>Cloudflare (R2 &amp; Workers)</strong> — penyimpanan dokumen/gambar dan penghosan laman web ini.</li>
+				<li><strong>Railway</strong> — penghosan pangkalan data dan pelayan bahagian belakang.</li>
+				<li><strong>Firebase Cloud Messaging (Google)</strong> — penghantaran notifikasi push.</li>
+			</ul>
+			<p>Kami tidak menjual data peribadi anda kepada mana-mana pihak ketiga.</p>
+
+			<h2>Hak anda</h2>
+			<p>
+				Anda berhak memohon eksport data penjagaan anda atau memadam
+				akaun anda pada bila-bila masa. Keupayaan ini sedang dibina terus
+				dalam aplikasi; buat masa ini, hantar permohonan ke
+				<a href="mailto:hafiz@hafizbahtiar.com">hafiz@hafizbahtiar.com</a>
+				dan kami akan uruskan secara manual. Apabila akaun dipadam,
+				maklumat pengenalan (e-mel, nama, kata laluan) dinyahnamakan; rekod
+				penjagaan yang dikongsi dengan ahli keluarga lain dikekalkan
+				mengikut sejarah yang telah disimpan (dipadam lembut, bukan
+				dipadam terus), supaya audit dan integriti bulatan penjagaan kekal
+				terjaga.
+			</p>
+
+			<h2>Pengekalan data</h2>
+			<p>
+				Kami tidak memadam terus akaun atau rekod penjagaan — sebaliknya
+				kami menyahnamakan akaun (e-mel/nama/kata laluan) dan memadam
+				lembut rekod penjagaan, supaya sejarah dan log audit kekal sah
+				tanpa mendedahkan identiti anda.
+			</p>
+
+			<h2>Keselamatan</h2>
+			<p>
+				Semua data dihantar melalui HTTPS/TLS. Kata laluan disulitkan
+				menggunakan argon2id. Data disimpan disulitkan semasa rehat.
+				Akses kepada setiap profil penjagaan disemak semula pada setiap
+				permintaan — pembatalan akses berkuat kuasa serta-merta.
+			</p>
+
+			<h2>Proses pelanggaran data</h2>
+			<p>
+				Jika berlaku pelanggaran data yang menjejaskan maklumat peribadi
+				anda, kami akan memberitahu pengguna yang terjejas mengikut
+				tempoh yang munasabah dan mengikut keperluan Akta Perlindungan
+				Data Peribadi 2010 (PDPA) Malaysia.
+			</p>
+
+			<h2>Kanak-kanak dan subjek penjagaan</h2>
+			<p>
+				Subjek sesuatu profil penjagaan (contohnya kanak-kanak atau warga
+				emas) mungkin bukan pemegang akaun itu sendiri — data mereka
+				dimasukkan oleh penjaga/ahli keluarga bagi pihak mereka, bukan
+				dikumpul terus daripada mereka.
+			</p>
+
+			<h2>Perubahan kepada dasar ini</h2>
+			<p>
+				Kami mungkin mengemas kini dasar ini dari semasa ke semasa.
+				Tarikh "kemas kini terakhir" di atas menunjukkan versi terkini.
+			</p>
+
+			<h2>Hubungi kami</h2>
+			<p>
+				Sebarang pertanyaan berkaitan privasi, hubungi kami di
+				<a href="mailto:hafiz@hafizbahtiar.com">hafiz@hafizbahtiar.com</a>.
+			</p>
+		</article>
+	</main>
+</SiteLayout>
+
+<style>
+	.prose-page {
+		display: flex;
+		justify-content: center;
+		padding: 64px 24px 96px;
+	}
+
+	.prose {
+		width: 100%;
+		max-width: 680px;
+	}
+
+	.prose h1 {
+		font-size: 30px;
+		font-weight: 700;
+		margin: 0 0 8px;
+		color: var(--color-text-primary);
+	}
+
+	.prose .updated {
+		font-size: 13px;
+		color: var(--color-text-secondary);
+		margin: 0 0 32px;
+	}
+
+	.prose h2 {
+		font-size: 19px;
+		font-weight: 600;
+		margin: 36px 0 12px;
+		color: var(--color-text-primary);
+	}
+
+	.prose p {
+		font-size: 15px;
+		line-height: 1.7;
+		color: var(--color-text-secondary);
+		margin: 0 0 14px;
+	}
+
+	.prose ul {
+		margin: 0 0 14px;
+		padding-left: 20px;
+	}
+
+	.prose li {
+		font-size: 15px;
+		line-height: 1.7;
+		color: var(--color-text-secondary);
+		margin-bottom: 6px;
+	}
+
+	.prose a {
+		color: var(--color-primary);
+	}
+
+	.prose strong {
+		color: var(--color-text-primary);
+	}
+</style>
