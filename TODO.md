@@ -166,6 +166,31 @@ for the readiness plan this repo is part of.
   already-shipped, already-tested auth pages); worth doing as a fast
   follow.
 
+## Flow/security audit (2026-08-23)
+
+Fresh pass over `src/` against the current TODO state; no `[x]` items above re-litigated.
+Both findings below are fixed.
+
+- [x] **🟡 `/email-verified` used a dead `kasihbersama://` custom scheme** — fixed
+  2026-08-23. `src/pages/email-verified.astro`'s "Buka Aplikasi" button pointed at
+  `kasihbersama://open`, but the project explicitly decided against a custom scheme in
+  favor of Universal/App Links (`kasihbersama_flutter/TODO.md` §1) — the app never
+  registers that scheme, so the button silently did nothing and the 2s blur-fallback
+  never fired. Changed to `https://kasihbersama.com/` (the real Universal Link domain)
+  with a comment noting registration is still blocked on the release keystore + prod
+  domain (same blocker as `kasihbersama_flutter/TODO.md` §1) — the button will start
+  actually opening the app once that ships, no further Astro-side change needed.
+- [x] **🟡 Privacy policy named the wrong push vendor** — fixed 2026-08-23.
+  `src/pages/privacy.astro`'s third-party processor list said "Firebase Cloud Messaging
+  (Google)"; the backend actually uses **OneSignal** (`kasihbersama-backend/internal/notify`,
+  per `ARCHITECTURE.md`/`FLOW.md` §1), not FCM directly. PDPA-relevant factual error —
+  corrected to "OneSignal". Follow-up (not done here): confirm whether OneSignal's own
+  use of FCM/APNs underneath needs sub-processor disclosure.
+
+No other new findings — XSS surface (`textContent`, not `innerHTML`, for all
+server/URL-derived text), env/secret handling, and nav/footer link integrity all still
+verified clean.
+
 ## Later (deferred 2026-07-19 — not started)
 - [ ] **Invite/claim accept without the app or an account.** Considered
   extending `/verify-email`+`/reset-password` scope to also cover
@@ -187,12 +212,10 @@ for the readiness plan this repo is part of.
     (same island-only, no-SPA-router pattern as verify-email/
     reset-password). Pulling the Next.js dashboard forward just for this
     would drag in its whole undecided auth mechanism for no reason.
-  - Separately noticed while reading the code: `CreateInvite`/
-    `CreateClaim` (`invite.go:60`, `claim.go:62`) put the token in a
-    **query string** (`?token=`), not the URL fragment doc 04 itself
-    prescribes for invite/claim links specifically (`/claim#token=...`,
-    doc 04 "Token rules") — worth fixing alongside this work, since
-    query-string tokens land in server logs/proxies/Referer headers.
-    (`/verify-email`/`/reset-password` don't have this issue — doc 02
-    doesn't carry the same fragment requirement for those, lower-stakes
-    tokens.)
+  - ~~Separately noticed while reading the code: `CreateInvite`/
+    `CreateClaim` put the token in a query string~~ — **fixed backend-side
+    2026-08-23**: `invite.go:60`/`claim.go:62` now build `#token=...`
+    fragment links per doc 04's "Token rules", not `?token=`. No Astro
+    change needed (this repo doesn't build those links). This deferred
+    slice (invite/claim accept without the app) is otherwise still not
+    started.

@@ -17,7 +17,10 @@ import AuthLayout from "../layouts/AuthLayout.astro";
 			Akaun KasihBersama anda kini aktif sepenuhnya. Anda boleh mula
 			menggunakan aplikasi untuk menyelaraskan penjagaan orang tersayang.
 		</p>
-		<a href="kasihbersama://open" class="btn" id="open-app-btn">
+		<!-- Universal Link, not a custom scheme (project decided against kasihbersama:// —
+		     see kasihbersama_flutter/TODO.md §1). Registration is blocked on the release
+		     keystore + prod domain, so this may just load the site until that ships. -->
+		<a href="https://kasihbersama.com/" class="btn" id="open-app-btn">
 			Buka Aplikasi
 		</a>
 		<p class="fallback" id="fallback-text">
