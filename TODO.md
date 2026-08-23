@@ -139,32 +139,34 @@ for the readiness plan this repo is part of.
   Task 5 Step 2 for what to fill in once the Apple Team ID is known (JSON
   has no native comment syntax, hence the field). Verified both copy
   through `npm run build` unmodified to `dist/.well-known/`.
-- [ ] **Point the backend's email links at this domain** — now that
-  `/verify-email` and `/reset-password` actually exist, this stops being
-  optional: `signup.go:79` / `password_reset.go:39` in
-  `kasihbersama-backend` still build links off `PublicAPIBaseURL` (the
-  raw API host, JSON only), so a user clicking the email link today never
-  reaches these pages at all. Needs a small backend change (new
-  `PublicWebBaseURL`-style config pointing here, or repurposing the
-  existing var) — tracked as open in the stack-split spec's Non-goals;
-  not done in this session, backend repo's call. **Flutter app now has
-  staging deep link registration** for the backend's staging domain
-  (`kasihbersama-backend-staging.up.railway.app`), so once the backend
-  adds `PublicWebBaseURL` pointing at the astro staging URL, the full
-  flow (email → tap → OS opens app or falls back to astro page) will
-  work end-to-end on staging.
+- [x] **Point the backend's email links at this domain** — re-audited
+  2026-08-23, already done: `kasihbersama-backend/internal/config`'s
+  `Config.LinkBaseURL()` (added in commit `989735d`, "implement landing
+  pages for email verification and password reset" — after this TODO line
+  was written) returns `PublicWebBaseURL` when set, falling back to
+  `PublicAPIBaseURL` otherwise; `Load()` fails closed in production if
+  `PUBLIC_WEB_BASE_URL` is unset. `signup.go:79`, `password_reset.go:39`,
+  `invite.go:60`, and `claim.go:62` all build their links through
+  `s.cfg.LinkBaseURL()`, not the raw API host — confirmed by reading the
+  code, not just the config. Covered by `TestLoad_PublicWebBaseURLRequiredInProduction`,
+  `TestLoad_PublicWebBaseURLOptionalOutsideProduction`, `TestConfig_LinkBaseURL`.
+  What's still genuinely open is **setting the env var itself on Railway
+  staging** (`PUBLIC_WEB_BASE_URL` → this repo's staging URL) — infra, not
+  code; see `kasihbersama-backend/TODO.md`'s "Staging email links → Universal
+  Links" line. Once that's set, the full flow (email → tap → OS opens app or
+  falls back to astro page) works end-to-end on staging, since Flutter
+  already has staging deep link registration for the backend's staging
+  domain.
 - [ ] **Name a registered legal entity in Privacy/Terms** — `/privacy` and
   `/terms` currently name no company, just the contact email
   `hafiz@hafizbahtiar.com` (deliberate per the 2026-07-19 spec — no entity
   is registered yet). Update both pages once a company actually exists.
-- [ ] **Link `/privacy`/`/terms` from the auth pages** —
-  `AuthLayout.astro`-based pages (`verify-email.astro`,
-  `reset-password.astro`) still don't surface Privacy/Terms links the way
-  `SiteLayout.astro`'s footer does for every other page. Deliberately out
-  of scope for the 2026-07-19 landing refresh (see that spec's Non-goals —
-  kept the change reviewable as "landing + new pages" without touching
-  already-shipped, already-tested auth pages); worth doing as a fast
-  follow.
+- [x] **Link `/privacy`/`/terms` from the auth pages** — done 2026-08-23.
+  `AuthLayout.astro`'s footer now includes `Privasi`/`Terma & Syarat` links
+  (same wording as `SiteLayout.astro`'s footer), covering all three pages
+  that share this chrome: `verify-email.astro`, `reset-password.astro`,
+  `email-verified.astro`. Verified via `npm run build` (9 pages, no errors)
+  and confirmed the links render in the built HTML for all three pages.
 
 ## Flow/security audit (2026-08-23)
 

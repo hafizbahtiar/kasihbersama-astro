@@ -24,6 +24,11 @@ const { title, description } = Astro.props;
 
 	<footer class="footer">
 		<p>&copy; {new Date().getFullYear()} KasihBersama</p>
+		<p class="legal-links">
+			<a href="/privacy">Privasi</a>
+			<span aria-hidden="true">&middot;</span>
+			<a href="/terms">Terma &amp; Syarat</a>
+		</p>
 	</footer>
 </Layout>
 
@@ -72,5 +77,18 @@ const { title, description } = Astro.props;
 		font-size: 13px;
 		color: var(--color-text-secondary);
 		margin: 0;
+	}
+
+	.legal-links {
+		margin-top: 8px !important;
+	}
+
+	.legal-links a {
+		color: var(--color-text-secondary);
+		text-decoration: underline;
+	}
+
+	.legal-links span {
+		margin: 0 6px;
 	}
 </style>
