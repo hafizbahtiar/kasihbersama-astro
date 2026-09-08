@@ -2,20 +2,20 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Refresh the landing page to look trustworthy/professional (not "scammer-y") and add five standard pages (Privacy, Terms, Contact, About, 404) — all in Malay, matching the existing design tokens.
+**Goal:** Refresh the landing page to look trustworthy/professional (not "scammer-y") and add five standard pages (Privacy, Terms, Contact, About, 404) - all in Malay, matching the existing design tokens.
 
-**Architecture:** A new `SiteLayout.astro` (sticky nav + slot + multi-column footer) becomes the shared chrome for the landing page and four new content pages. `AuthLayout.astro` (used by `verify-email`/`reset-password`) is untouched — different job, different chrome. Content pages are static prose wrapped in `SiteLayout`; no new client-side JS anywhere in this plan.
+**Architecture:** A new `SiteLayout.astro` (sticky nav + slot + multi-column footer) becomes the shared chrome for the landing page and four new content pages. `AuthLayout.astro` (used by `verify-email`/`reset-password`) is untouched - different job, different chrome. Content pages are static prose wrapped in `SiteLayout`; no new client-side JS anywhere in this plan.
 
-**Tech Stack:** Astro (static output, no SSR), no test framework in this repo — verification is `npm run build` succeeding plus grepping the built HTML for expected content.
+**Tech Stack:** Astro (static output, no SSR), no test framework in this repo - verification is `npm run build` succeeding plus grepping the built HTML for expected content.
 
 ## Global Constraints
 
-- All new page copy is in **Malay** — matches `Layout.astro`'s `lang="ms"` and every existing page. Do not write any new user-facing copy in English.
-- Brand tokens from `src/layouts/Layout.astro`'s `:root`: `--color-primary: #00695c`, `--color-primary-light: #e0f2f1`, `--color-text-primary: #1a1a2e`, `--color-text-secondary: #64748b`, `--color-surface: #f8fafb`, `--color-border: #e2e8f0`. Font is Poppins (already loaded in `Layout.astro`) — do not add another font.
+- All new page copy is in **Malay** - matches `Layout.astro`'s `lang="ms"` and every existing page. Do not write any new user-facing copy in English.
+- Brand tokens from `src/layouts/Layout.astro`'s `:root`: `--color-primary: #00695c`, `--color-primary-light: #e0f2f1`, `--color-text-primary: #1a1a2e`, `--color-text-secondary: #64748b`, `--color-surface: #f8fafb`, `--color-border: #e2e8f0`. Font is Poppins (already loaded in `Layout.astro`) - do not add another font.
 - No fabricated trust signals anywhere: no testimonials, no user counts, no star ratings, no fake app screenshots. The existing "Akan datang di App Store & Google Play" honesty must be preserved verbatim.
-- Contact email is `hafiz@hafizbahtiar.com` — no registered company entity exists yet, so legal copy refers to "KasihBersama" as the product/operator, never a named legal entity.
-- **Do not run `git commit`.** The user commits their own changes — every task ends at its verification step, not a commit step. If you're executing this plan and reach a point where the template would normally say "commit," stop there instead and report the task as ready for the user to commit.
-- Full design rationale: `docs/superpowers/specs/2026-07-19-landing-refresh-and-legal-pages-design.md` in this repo. Data-practice claims in the Privacy Policy must trace back to `kasihbersama-backend/docs/08-security-privacy.md` — don't invent data practices beyond what that doc describes.
+- Contact email is `hafiz@hafizbahtiar.com` - no registered company entity exists yet, so legal copy refers to "KasihBersama" as the product/operator, never a named legal entity.
+- **Do not run `git commit`.** The user commits their own changes - every task ends at its verification step, not a commit step. If you're executing this plan and reach a point where the template would normally say "commit," stop there instead and report the task as ready for the user to commit.
+- Full design rationale: `docs/superpowers/specs/2026-07-19-landing-refresh-and-legal-pages-design.md` in this repo. Data-practice claims in the Privacy Policy must trace back to `kasihbersama-backend/docs/08-security-privacy.md` - don't invent data practices beyond what that doc describes.
 
 ---
 
@@ -26,7 +26,7 @@
 - Modify: `src/pages/index.astro` (full rewrite)
 
 **Interfaces:**
-- Produces: `SiteLayout` Astro component, props `{ title?: string; description?: string }` (both optional, forwarded to `Layout.astro` which supplies defaults when omitted — same pattern as `AuthLayout.astro` but with optional instead of required `title`). Renders a `<slot />` for page content between a sticky nav and a footer. Consumed by every task below via `import SiteLayout from '../layouts/SiteLayout.astro';`.
+- Produces: `SiteLayout` Astro component, props `{ title?: string; description?: string }` (both optional, forwarded to `Layout.astro` which supplies defaults when omitted - same pattern as `AuthLayout.astro` but with optional instead of required `title`). Renders a `<slot />` for page content between a sticky nav and a footer. Consumed by every task below via `import SiteLayout from '../layouts/SiteLayout.astro';`.
 
 - [ ] **Step 1: Create `src/layouts/SiteLayout.astro`**
 
@@ -216,7 +216,7 @@ const features = [
 		icon: '📝',
 		title: 'Log Penjagaan',
 		description:
-			'Rekod aktiviti harian — makan, tidur, mood, dan lain-lain — supaya semua ahli keluarga sentiasa terkini.',
+			'Rekod aktiviti harian - makan, tidur, mood, dan lain-lain - supaya semua ahli keluarga sentiasa terkini.',
 	},
 	{
 		icon: '💊',
@@ -242,7 +242,7 @@ const trustPoints = ['🔒 Data disulitkan', '🇲🇾 Patuh PDPA Malaysia', '�
 			<h1>Kongsikan penjagaan dengan keluarga</h1>
 			<p class="subtitle">
 				KasihBersama membantu keluarga menyelaraskan penjagaan orang
-				tersayang — log harian, ubat, temujanji, dan dokumen, semua dalam
+				tersayang - log harian, ubat, temujanji, dan dokumen, semua dalam
 				satu tempat.
 			</p>
 		</section>
@@ -379,7 +379,7 @@ const trustPoints = ['🔒 Data disulitkan', '🇲🇾 Patuh PDPA Malaysia', '�
 - [ ] **Step 3: Build and verify**
 
 Run: `npm run build`
-Expected: `3 page(s) built` (unchanged — still just `/`, `/verify-email`, `/reset-password`), no errors.
+Expected: `3 page(s) built` (unchanged - still just `/`, `/verify-email`, `/reset-password`), no errors.
 
 Then verify the nav/footer/trust-strip actually landed in the output:
 
@@ -410,7 +410,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
 <SiteLayout
-	title="Dasar Privasi — KasihBersama"
+	title="Dasar Privasi - KasihBersama"
 	description="Bagaimana KasihBersama mengumpul, menggunakan, dan melindungi data anda."
 >
 	<main class="prose-page">
@@ -448,7 +448,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			<h2>Kenapa kami mengumpul data ini</h2>
 			<p>
 				Kami menggunakan data ini semata-mata untuk menyediakan
-				perkhidmatan KasihBersama — menyelaraskan penjagaan antara ahli
+				perkhidmatan KasihBersama - menyelaraskan penjagaan antara ahli
 				keluarga, menghantar peringatan, dan memaparkan kad kecemasan
 				apabila diberi kebenaran. Kami tidak menggunakan data penjagaan
 				anda untuk pengiklanan.
@@ -460,10 +460,10 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 				(sebagai pemproses data, bukan untuk menjual data anda):
 			</p>
 			<ul>
-				<li><strong>Resend</strong> — penghantaran e-mel (pengesahan akaun, tetapan semula kata laluan, jemputan).</li>
-				<li><strong>Cloudflare (R2 &amp; Workers)</strong> — penyimpanan dokumen/gambar dan penghosan laman web ini.</li>
-				<li><strong>Railway</strong> — penghosan pangkalan data dan pelayan bahagian belakang.</li>
-				<li><strong>Firebase Cloud Messaging (Google)</strong> — penghantaran notifikasi push.</li>
+				<li><strong>Resend</strong> - penghantaran e-mel (pengesahan akaun, tetapan semula kata laluan, jemputan).</li>
+				<li><strong>Cloudflare (R2 &amp; Workers)</strong> - penyimpanan dokumen/gambar dan penghosan laman web ini.</li>
+				<li><strong>Railway</strong> - penghosan pangkalan data dan pelayan bahagian belakang.</li>
+				<li><strong>Firebase Cloud Messaging (Google)</strong> - penghantaran notifikasi push.</li>
 			</ul>
 			<p>Kami tidak menjual data peribadi anda kepada mana-mana pihak ketiga.</p>
 
@@ -483,7 +483,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 			<h2>Pengekalan data</h2>
 			<p>
-				Kami tidak memadam terus akaun atau rekod penjagaan — sebaliknya
+				Kami tidak memadam terus akaun atau rekod penjagaan - sebaliknya
 				kami menyahnamakan akaun (e-mel/nama/kata laluan) dan memadam
 				lembut rekod penjagaan, supaya sejarah dan log audit kekal sah
 				tanpa mendedahkan identiti anda.
@@ -494,7 +494,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 				Semua data dihantar melalui HTTPS/TLS. Kata laluan disulitkan
 				menggunakan argon2id. Data disimpan disulitkan semasa rehat.
 				Akses kepada setiap profil penjagaan disemak semula pada setiap
-				permintaan — pembatalan akses berkuat kuasa serta-merta.
+				permintaan - pembatalan akses berkuat kuasa serta-merta.
 			</p>
 
 			<h2>Proses pelanggaran data</h2>
@@ -508,7 +508,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			<h2>Kanak-kanak dan subjek penjagaan</h2>
 			<p>
 				Subjek sesuatu profil penjagaan (contohnya kanak-kanak atau warga
-				emas) mungkin bukan pemegang akaun itu sendiri — data mereka
+				emas) mungkin bukan pemegang akaun itu sendiri - data mereka
 				dimasukkan oleh penjaga/ahli keluarga bagi pihak mereka, bukan
 				dikumpul terus daripada mereka.
 			</p>
@@ -622,7 +622,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
 <SiteLayout
-	title="Terma & Syarat — KasihBersama"
+	title="Terma & Syarat - KasihBersama"
 	description="Terma dan syarat penggunaan perkhidmatan KasihBersama."
 >
 	<main class="prose-page">
@@ -656,7 +656,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			<p>
 				Anda mesti berusia 18 tahun ke atas untuk mendaftar akaun. Tiada
 				had umur bagi subjek profil penjagaan (contohnya kanak-kanak
-				atau warga emas yang dijaga) — profil bagi pihak mereka
+				atau warga emas yang dijaga) - profil bagi pihak mereka
 				diuruskan oleh penjaga yang mendaftar akaun.
 			</p>
 
@@ -809,7 +809,7 @@ Expected: all three greps print a match.
 import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
-<SiteLayout title="Hubungi Kami — KasihBersama" description="Hubungi pasukan KasihBersama.">
+<SiteLayout title="Hubungi Kami - KasihBersama" description="Hubungi pasukan KasihBersama.">
 	<main class="prose-page">
 		<article class="prose">
 			<h1>Hubungi Kami</h1>
@@ -897,15 +897,15 @@ Expected: both greps print a match.
 import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
-<SiteLayout title="Tentang Kami — KasihBersama" description="Kenapa kami membina KasihBersama.">
+<SiteLayout title="Tentang Kami - KasihBersama" description="Kenapa kami membina KasihBersama.">
 	<main class="prose-page">
 		<article class="prose">
 			<h1>Tentang Kami</h1>
 
 			<p>
 				KasihBersama bermula daripada satu pemerhatian mudah: menjaga
-				orang tersayang — sama ada anak kecil, ibu bapa yang menua, atau
-				ahli keluarga yang sakit — jarang menjadi tanggungjawab seorang
+				orang tersayang - sama ada anak kecil, ibu bapa yang menua, atau
+				ahli keluarga yang sakit - jarang menjadi tanggungjawab seorang
 				sahaja, tetapi selalunya bertaburan dalam mesej WhatsApp, nota
 				kertas, dan ingatan yang cuba dikongsi semula setiap kali
 				seseorang bertanya "macam mana keadaan dia hari ini?"
@@ -913,7 +913,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 			<p>
 				Kami sedang membina KasihBersama supaya setiap ahli keluarga
-				dalam bulatan penjagaan — walau di mana mereka berada — boleh
+				dalam bulatan penjagaan - walau di mana mereka berada - boleh
 				melihat log harian, jadual ubat, dan dokumen penting yang sama,
 				tanpa perlu bertanya berulang kali.
 			</p>
@@ -921,13 +921,13 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 			<p>
 				Kami masih di peringkat awal. Aplikasi belum lagi tersedia di
 				App Store atau Google Play, dan kami sedang membina ciri demi
-				ciri dengan berhati-hati — terutamanya bahagian keselamatan dan
+				ciri dengan berhati-hati - terutamanya bahagian keselamatan dan
 				privasi data, memandangkan data penjagaan adalah maklumat
 				sensitif.
 			</p>
 
 			<p>
-				Ada soalan atau cadangan? Kami nak dengar — hubungi kami di
+				Ada soalan atau cadangan? Kami nak dengar - hubungi kami di
 				<a href="mailto:hafiz@hafizbahtiar.com">hafiz@hafizbahtiar.com</a>.
 			</p>
 		</article>
@@ -988,7 +988,7 @@ Expected: both greps print a match.
 **Interfaces:**
 - Consumes: `SiteLayout` from Task 1 (same signature as Task 2).
 
-Astro treats `src/pages/404.astro` specially: it builds to `dist/404.html` (not `dist/404/index.html` like every other route), which is what static hosts auto-detect as the custom not-found page. This repo's `wrangler.jsonc` already has `assets.not_found_handling: "404-page"`, which is Cloudflare Workers' equivalent auto-detection — this task is the missing half of that existing config.
+Astro treats `src/pages/404.astro` specially: it builds to `dist/404.html` (not `dist/404/index.html` like every other route), which is what static hosts auto-detect as the custom not-found page. This repo's `wrangler.jsonc` already has `assets.not_found_handling: "404-page"`, which is Cloudflare Workers' equivalent auto-detection - this task is the missing half of that existing config.
 
 - [ ] **Step 1: Create `src/pages/404.astro`**
 
@@ -998,7 +998,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
 <SiteLayout
-	title="Halaman Tidak Dijumpai — KasihBersama"
+	title="Halaman Tidak Dijumpai - KasihBersama"
 	description="Halaman yang anda cari tidak wujud."
 >
 	<main class="not-found">
@@ -1077,7 +1077,7 @@ Expected: `8 page(s) built`, no errors. Then:
 npm run build:staging
 ```
 
-Expected: `8 page(s) built`, no errors (confirms the new pages don't accidentally depend on anything env-specific — they don't call `apiBaseUrl` at all, unlike `verify-email`/`reset-password`).
+Expected: `8 page(s) built`, no errors (confirms the new pages don't accidentally depend on anything env-specific - they don't call `apiBaseUrl` at all, unlike `verify-email`/`reset-password`).
 
 - [ ] **Step 2: Confirm every nav/footer link resolves to a real built page**
 
@@ -1092,12 +1092,12 @@ Expected: five `OK:` lines, no `MISSING:` lines.
 
 - [ ] **Step 3: Update `TODO.md`**
 
-Read the current `## Next` section first (it was last edited when `.well-known` placeholders were added), then add a new `## Done` entry (or extend the existing one) describing what shipped: `SiteLayout.astro` shared chrome; landing page restructured (gradient hero, trust-pill strip, icon-badge feature cards, multi-column footer); five new pages (`/privacy`, `/terms`, `/contact`, `/about`, `/404`), all grounded in `kasihbersama-backend/docs/08-security-privacy.md` for the privacy content. Note explicitly, as a follow-up (not a blocker): the Privacy Policy and Terms currently list no registered legal entity, just the contact email `hafiz@hafizbahtiar.com` — update both pages if/when a company is registered. Also note: `AuthLayout.astro`-based pages (`verify-email`, `reset-password`) still don't link to `/privacy`/`/terms` — deliberately out of scope per the design spec's Non-goals, tracked here as a possible fast follow.
+Read the current `## Next` section first (it was last edited when `.well-known` placeholders were added), then add a new `## Done` entry (or extend the existing one) describing what shipped: `SiteLayout.astro` shared chrome; landing page restructured (gradient hero, trust-pill strip, icon-badge feature cards, multi-column footer); five new pages (`/privacy`, `/terms`, `/contact`, `/about`, `/404`), all grounded in `kasihbersama-backend/docs/08-security-privacy.md` for the privacy content. Note explicitly, as a follow-up (not a blocker): the Privacy Policy and Terms currently list no registered legal entity, just the contact email `hafiz@hafizbahtiar.com` - update both pages if/when a company is registered. Also note: `AuthLayout.astro`-based pages (`verify-email`, `reset-password`) still don't link to `/privacy`/`/terms` - deliberately out of scope per the design spec's Non-goals, tracked here as a possible fast follow.
 
 ---
 
 ## Self-Review Notes
 
-- **Spec coverage:** every section of `docs/superpowers/specs/2026-07-19-landing-refresh-and-legal-pages-design.md` maps to a task — `SiteLayout` + landing (Task 1), `/privacy` (Task 2), `/terms` (Task 3), `/contact` (Task 4), `/about` (Task 5), `404.astro` (Task 6). The spec's Non-goals (not touching `AuthLayout`, no legal review, no analytics, no working contact form) are respected — no task does any of those.
+- **Spec coverage:** every section of `docs/superpowers/specs/2026-07-19-landing-refresh-and-legal-pages-design.md` maps to a task - `SiteLayout` + landing (Task 1), `/privacy` (Task 2), `/terms` (Task 3), `/contact` (Task 4), `/about` (Task 5), `404.astro` (Task 6). The spec's Non-goals (not touching `AuthLayout`, no legal review, no analytics, no working contact form) are respected - no task does any of those.
 - **Placeholder scan:** no TBD/TODO markers; every task has complete file contents, not descriptions of content.
 - **Type consistency:** `SiteLayout` props (`{ title?: string; description?: string }`) declared once in Task 1 and used identically (same import path, same prop names) in Tasks 2–6.
