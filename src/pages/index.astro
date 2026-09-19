@@ -7,31 +7,31 @@ import '../styles/landing.css';
 const features = [
 	{
 		number: '01',
-		title: 'Bulatan penjagaan',
+		title: 'Circle keluarga',
 		description:
-			'Jemput ahli keluarga untuk berkongsi tanggungjawab menjaga orang tersayang dalam satu ruang yang sama.',
+			'Satukan ahli keluarga, agihkan peranan dan kongsi maklumat yang perlu diketahui bersama.',
 	},
 	{
 		number: '02',
-		title: 'Log penjagaan',
+		title: 'Rutin dan tugasan',
 		description:
-			'Rekod aktiviti harian seperti makan, tidur dan mood supaya semua ahli keluarga sentiasa memahami keadaan terkini.',
+			'Urus perkara yang perlu dibuat, siapa yang bertanggungjawab dan apa yang sudah selesai.',
 	},
 	{
 		number: '03',
-		title: 'Ubat dan peringatan',
+		title: 'Rekod penjagaan',
 		description:
-			'Jejak jadual ubat dan tandakan dos yang telah diambil tanpa bergantung pada mesej atau nota yang berasingan.',
+			'Simpan apa yang berlaku setiap hari, daripada rutin keluarga hingga penjagaan orang tersayang.',
 	},
 	{
 		number: '04',
-		title: 'Temujanji dan dokumen',
+		title: 'Dokumen dan peringatan',
 		description:
-			'Simpan temujanji perubatan dan dokumen penting di satu tempat yang mudah dicapai oleh keluarga.',
+			'Letakkan dokumen penting, tarikh luput dan perkara berulang di tempat yang mudah dicapai.',
 	},
 ];
 
-const trustPoints = ['Data disulitkan', 'Patuh PDPA Malaysia', 'Tiada jualan data'];
+const trustPoints = ['Satu ruang untuk keluarga', 'Akses ikut peranan', 'Data disulitkan'];
 ---
 
 <SiteLayout>
@@ -39,11 +39,11 @@ const trustPoints = ['Data disulitkan', 'Patuh PDPA Malaysia', 'Tiada jualan dat
 		<section class="hero">
 			<div class="hero-inner">
 				<div class="hero-copy">
-					<p class="eyebrow">Penjagaan keluarga, bersama</p>
-					<h1>Kongsikan penjagaan dengan lebih tenang.</h1>
+					<p class="eyebrow">Pengurusan keluarga, bersama</p>
+					<h1>Perkara keluarga, tersusun dalam satu ruang.</h1>
 					<p class="subtitle">
-						KasihBersama membantu keluarga menyelaraskan log harian, ubat,
-						temujanji dan dokumen orang tersayang dalam satu tempat.
+						KasihBersama membantu keluarga mengurus circle, rutin, tugasan,
+						dokumen dan penjagaan orang tersayang dengan lebih jelas.
 					</p>
 					<p class="availability">Akan datang di App Store dan Google Play</p>
 				</div>
@@ -53,14 +53,14 @@ const trustPoints = ['Data disulitkan', 'Patuh PDPA Malaysia', 'Tiada jualan dat
 			</div>
 		</section>
 
-		<section class="proof-row" aria-label="Komitmen KasihBersama">
+		<section class="proof-row" aria-label="Prinsip KasihBersama">
 			{trustPoints.map((point) => <span>{point}</span>)}
 		</section>
 
 		<section class="features" id="ciri-ciri" aria-labelledby="features-title">
 			<div class="section-heading">
-				<p class="eyebrow">Satu ruang untuk perkara yang penting</p>
-				<h2 id="features-title">Dibina untuk rutin penjagaan sebenar.</h2>
+				<p class="eyebrow">Daripada rutin harian hingga perkara besar</p>
+				<h2 id="features-title">Satu gambaran yang boleh dikongsi seluruh keluarga.</h2>
 			</div>
 			<div class="feature-list">
 				{features.map((feature) => (
@@ -72,6 +72,20 @@ const trustPoints = ['Data disulitkan', 'Patuh PDPA Malaysia', 'Tiada jualan dat
 						</div>
 					</article>
 				))}
+			</div>
+		</section>
+
+		<section class="roadmap" aria-labelledby="roadmap-title">
+			<div class="roadmap-inner">
+				<div>
+					<p class="eyebrow">Dibina untuk kehidupan sebenar</p>
+					<h2 id="roadmap-title">Satu keluarga, banyak perkara yang perlu diingat.</h2>
+				</div>
+				<p>
+					Apabila KasihBersama berkembang, ruang yang sama akan membantu keluarga
+					mengurus kenderaan, kewangan rumah, sekolah, dokumen penting dan
+					perancangan masa depan.
+				</p>
 			</div>
 		</section>
 	</main>
