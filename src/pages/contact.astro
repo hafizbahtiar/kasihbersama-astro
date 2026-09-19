@@ -18,44 +18,39 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 <style>
 	.prose-page {
-		display: flex;
-		justify-content: center;
-		padding: 64px 24px 96px;
+		padding-top: 56px;
+		padding-bottom: 72px;
 	}
 
 	.prose {
-		width: 100%;
-		max-width: 680px;
 		text-align: center;
 	}
 
 	.prose h1 {
-		font-size: 30px;
-		font-weight: 700;
-		margin: 0 0 16px;
-		color: var(--color-text-primary);
+		margin-bottom: 16px;
 	}
 
 	.prose p {
-		font-size: 15px;
-		line-height: 1.7;
-		color: var(--color-text-secondary);
-		margin: 0 0 24px;
+		margin-bottom: 24px;
 	}
 
 	.contact-email {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		max-width: 100%;
+		min-height: 48px;
 		font-size: 20px;
 		font-weight: 600;
 		color: var(--color-primary);
 		background: var(--color-primary-light);
 		border-radius: 999px;
-		padding: 14px 28px;
+		padding: 12px 24px;
 		text-decoration: none;
+		overflow-wrap: anywhere;
 	}
 
 	.note {
-		margin-top: 20px;
-		font-size: 13px;
+		margin-top: 20px !important;
+		font-size: 13px !important;
 	}
 </style>
