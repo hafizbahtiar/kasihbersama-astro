@@ -4,28 +4,28 @@ import { apiBaseUrl } from '../lib/config';
 ---
 
 <AuthLayout
-	title="Sahkan Emel - KasihBersama"
-	description="Sahkan alamat emel akaun KasihBersama anda."
+	title="Sahkan E-mel - KasihBersama"
+	description="Sahkan alamat e-mel akaun KasihBersama anda."
 >
 	<div id="state-loading" class="state" aria-live="polite">
 		<div class="spinner" aria-hidden="true"></div>
-		<p>Mengesahkan emel anda&hellip;</p>
+		<p>Sedang mengesahkan e-mel anda&hellip;</p>
 	</div>
 
 	<div id="state-success" class="state" hidden aria-live="polite">
 		<div class="icon icon-success" aria-hidden="true">✓</div>
-		<h1>Emel disahkan</h1>
-		<p>Mengarahkan anda ke halaman seterusnya&hellip;</p>
+		<h1>E-mel disahkan</h1>
+		<p>Anda akan diarahkan ke halaman seterusnya&hellip;</p>
 	</div>
 
 	<div id="state-error" class="state" hidden aria-live="polite">
 		<div class="icon icon-error" aria-hidden="true">!</div>
 		<h1>Pautan tidak sah</h1>
 		<p id="error-message">
-			Pautan pengesahan ini tidak sah atau telah luput. Sila mohon pautan
-			baharu dari aplikasi.
+			Pautan pengesahan ini tidak sah atau telah luput. Sila minta pautan
+			baharu melalui aplikasi.
 		</p>
-		<a class="recovery-link" href="/contact">Hubungi kami jika perlukan bantuan</a>
+		<a class="recovery-link" href="/contact">Hubungi kami sekiranya anda memerlukan bantuan</a>
 	</div>
 </AuthLayout>
 
@@ -47,7 +47,7 @@ import { apiBaseUrl } from '../lib/config';
 
 	if (!token) {
 		errorMessage.textContent =
-			'Pautan ini tiada token yang sah. Sila semak semula pautan dalam emel anda.';
+			'Pautan ini tidak mengandungi token yang sah. Sila semak semula pautan dalam e-mel anda.';
 		show(errorState);
 	} else {
 		fetch(`${apiBaseUrl}/api/v1/auth/verify-email`, {
@@ -68,7 +68,7 @@ import { apiBaseUrl } from '../lib/config';
 			})
 			.catch(() => {
 				errorMessage.textContent =
-					'Tidak dapat menghubungi pelayan. Sila cuba lagi sebentar.';
+					'Pelayan tidak dapat dihubungi. Sila cuba lagi sebentar lagi.';
 				show(errorState);
 			});
 	}

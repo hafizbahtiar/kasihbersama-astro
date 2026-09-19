@@ -8,3 +8,5 @@
 - Prefers reusing official brand assets from the related frontend/repository for logos, marks, wordmarks, and favicon surfaces instead of recreating or approximating them. Confidence: 0.95
 - Prefers resolving framework warnings with the framework-native tooling (for example, Astro's `Image` component and optimized image pipeline) rather than suppressing or ignoring them. Confidence: 0.9
 - Prefers product positioning and public copy to reflect KasihBersama as a broad family-management platform (including routines and everyday life, not health alone), with implemented versus upcoming features clearly distinguished from backend evidence and no overclaiming. Confidence: 0.95
+- Requires all user-facing Bahasa Malaysia copy to use correct, formal, standardized language, including consistent official terminology and grammar across the entire app. Confidence: 0.98
+- Prefers natural, idiomatic Malay product terminology over literal translations; rejects “Bulatan Keluarga” and “Circle” as awkward, and prefers “Ruang Bersama” as the primary KasihBersama feature name for the family-sharing space. Confidence: 0.99

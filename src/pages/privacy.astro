@@ -4,7 +4,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 <SiteLayout
 	title="Dasar Privasi - KasihBersama"
-	description="Bagaimana KasihBersama mengumpul, menggunakan, dan melindungi data anda."
+	description="Bagaimana KasihBersama mengumpulkan, menggunakan dan melindungi data anda."
 >
 	<main class="prose-page">
 		<article class="prose">
@@ -13,36 +13,36 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 			<p>
 				KasihBersama ("kami") menghormati privasi anda. Dasar ini
-				menerangkan data yang kami kumpul, sebab kami mengumpulnya, dan
+				menerangkan data yang kami kumpulkan, tujuan pengumpulannya dan
 				bagaimana anda boleh mengawalnya.
 			</p>
 
-			<h2>Apa data yang kami kumpul</h2>
+			<h2>Data yang kami kumpul</h2>
 			<ul>
 				<li>
 					<strong>Maklumat akaun:</strong> e-mel, nama paparan, kata laluan
 					(disulitkan, bukan disimpan sebagai teks biasa).
 				</li>
 				<li>
-					<strong>Data keluarga:</strong> circle, ahli, rutin, tugasan, rekod
+					<strong>Data keluarga:</strong> Ruang Bersama, ahli, rutin, tugasan, rekod
 					penjagaan, ubat, temujanji, nota dan maklumat berkaitan profil
 					keluarga yang anda atau ahli keluarga masukkan.
 				</li>
 				<li>
-					<strong>Dokumen dimuat naik:</strong> gambar dan dokumen (seperti
+					<strong>Dokumen yang dimuat naik:</strong> gambar dan dokumen (seperti
 					preskripsi) yang anda lampirkan pada profil penjagaan.
 				</li>
 				<li>
-					<strong>Token peranti:</strong> untuk menghantar notifikasi push
-					(peringatan ubat, temujanji), jika anda membenarkannya.
+					<strong>Token peranti:</strong> untuk menghantar pemberitahuan
+					(peringatan ubat dan temujanji), sekiranya anda membenarkannya.
 				</li>
 			</ul>
 
-			<h2>Kenapa kami mengumpul data ini</h2>
+			<h2>Tujuan data ini dikumpulkan</h2>
 			<p>
 				Kami menggunakan data ini semata-mata untuk menyediakan perkhidmatan
-				KasihBersama - menyelaraskan ahli keluarga, rutin, tugasan, dokumen,
-				peringatan dan penjagaan apabila ciri tersebut digunakan. Kami tidak
+				KasihBersama: menyelaraskan ahli keluarga, rutin, tugasan, dokumen,
+				peringatan dan penjagaan apabila ciri-ciri tersebut digunakan. Kami tidak
 				menggunakan data keluarga anda untuk pengiklanan.
 			</p>
 
@@ -52,32 +52,32 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 				(sebagai pemproses data, bukan untuk menjual data anda):
 			</p>
 			<ul>
-				<li><strong>Resend</strong> - penghantaran e-mel (pengesahan akaun, tetapan semula kata laluan, jemputan).</li>
-				<li><strong>Cloudflare (R2 &amp; Workers)</strong> - penyimpanan dokumen/gambar dan penghosan laman web ini.</li>
+				<li><strong>Resend</strong> - penghantaran e-mel untuk pengesahan akaun, penetapan semula kata laluan dan jemputan.</li>
+				<li><strong>Cloudflare (R2 dan Workers)</strong> - penyimpanan dokumen dan gambar serta pengehosan laman web ini.</li>
 				<li><strong>Railway</strong> - penghosan pangkalan data dan pelayan bahagian belakang.</li>
-				<li><strong>OneSignal</strong> - penghantaran notifikasi push.</li>
+				<li><strong>OneSignal</strong> - penghantaran pemberitahuan.</li>
 			</ul>
-			<p>Kami tidak menjual data peribadi anda kepada mana-mana pihak ketiga.</p>
+			<p>Kami tidak menjual data peribadi anda kepada mana-mana pihak.</p>
 
 			<h2>Hak anda</h2>
 			<p>
-				Anda berhak memohon eksport data keluarga anda atau memadam akaun
-				anda pada bila-bila masa. Keupayaan ini sedang dibina terus
-				dalam aplikasi; buat masa ini, hantar permohonan ke
+				Anda berhak memohon eksport data keluarga atau memadam akaun
+				anda pada bila-bila masa. Fungsi ini sedang dibina dalam aplikasi;
+				buat masa ini, sila hantar permohonan ke
 				<a href="mailto:hafiz@hafizbahtiar.com">hafiz@hafizbahtiar.com</a>
 				dan kami akan uruskan secara manual. Apabila akaun dipadam,
-				maklumat pengenalan (e-mel, nama, kata laluan) dinyahnamakan; rekod
+				maklumat pengenalan (e-mel, nama dan kata laluan) dinyahkenal pasti; rekod
 				penjagaan yang dikongsi dengan ahli keluarga lain dikekalkan
-				mengikut sejarah yang telah disimpan (dipadam lembut, bukan
-				dipadam terus), supaya audit dan integriti bulatan penjagaan kekal
-				terjaga.
+				mengikut sejarah yang telah disimpan (dipadam secara lembut, bukan
+				dipadam terus), supaya audit dan integriti Ruang Bersama kekal
+				terpelihara.
 			</p>
 
 			<h2>Pengekalan data</h2>
 			<p>
-				Kami tidak memadam terus akaun atau rekod keluarga - sebaliknya
-				kami menyahnamakan akaun (e-mel/nama/kata laluan) dan memadam
-				lembut rekod penjagaan, supaya sejarah dan log audit kekal sah
+				Kami tidak memadamkan akaun atau rekod keluarga secara terus. Sebaliknya,
+				kami menyahkenal pasti akaun (e-mel, nama dan kata laluan) serta memadamkan
+				rekod penjagaan secara lembut supaya sejarah dan log audit kekal sah
 				tanpa mendedahkan identiti anda.
 			</p>
 
@@ -86,23 +86,23 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 				Semua data dihantar melalui HTTPS/TLS. Kata laluan disulitkan
 				menggunakan argon2id. Data disimpan disulitkan semasa rehat.
 				Akses kepada setiap profil penjagaan disemak semula pada setiap
-				permintaan - pembatalan akses berkuat kuasa serta-merta.
+				permintaan; pembatalan akses berkuat kuasa serta-merta.
 			</p>
 
 			<h2>Proses pelanggaran data</h2>
 			<p>
-				Jika berlaku pelanggaran data yang menjejaskan maklumat peribadi
-				anda, kami akan memberitahu pengguna yang terjejas mengikut
-				tempoh yang munasabah dan mengikut keperluan Akta Perlindungan
+				Sekiranya berlaku pelanggaran data yang menjejaskan maklumat peribadi
+				anda, kami akan memaklumkan pengguna yang terjejas dalam tempoh
+				yang munasabah dan mengikut keperluan Akta Perlindungan
 				Data Peribadi 2010 (PDPA) Malaysia.
 			</p>
 
-			<h2>Kanak-kanak dan subjek penjagaan</h2>
+			<h2>Kanak-kanak dan subjek profil</h2>
 			<p>
-				Subjek sesuatu profil penjagaan (contohnya kanak-kanak atau warga
-				emas) mungkin bukan pemegang akaun itu sendiri - data mereka
-				dimasukkan oleh penjaga/ahli keluarga bagi pihak mereka, bukan
-				dikumpul terus daripada mereka.
+				Subjek sesuatu profil penjagaan, seperti kanak-kanak atau warga
+				emas, mungkin bukan pemegang akaun itu sendiri. Data mereka
+				dimasukkan oleh penjaga atau ahli keluarga bagi pihak mereka, bukan
+				dikumpulkan secara langsung daripada mereka.
 			</p>
 
 			<h2>Perubahan kepada dasar ini</h2>
@@ -113,7 +113,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 			<h2>Hubungi kami</h2>
 			<p>
-				Sebarang pertanyaan berkaitan privasi, hubungi kami di
+				Untuk sebarang pertanyaan berkaitan privasi, sila hubungi kami di
 				<a href="mailto:hafiz@hafizbahtiar.com">hafiz@hafizbahtiar.com</a>.
 			</p>
 		</article>

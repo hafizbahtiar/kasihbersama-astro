@@ -7,9 +7,9 @@ import '../styles/landing.css';
 const features = [
 	{
 		number: '01',
-		title: 'Circle keluarga',
+		title: 'Ruang Bersama',
 		description:
-			'Satukan ahli keluarga, agihkan peranan dan kongsi maklumat yang perlu diketahui bersama.',
+			'Himpunkan ahli keluarga dalam satu ruang, agihkan peranan dan kongsi maklumat yang perlu diketahui bersama.',
 	},
 	{
 		number: '02',
@@ -27,11 +27,11 @@ const features = [
 		number: '04',
 		title: 'Dokumen dan peringatan',
 		description:
-			'Letakkan dokumen penting, tarikh luput dan perkara berulang di tempat yang mudah dicapai.',
+			'Simpan dokumen penting, tarikh luput dan perkara berulang di tempat yang mudah dicapai.',
 	},
 ];
 
-const trustPoints = ['Satu ruang untuk keluarga', 'Akses ikut peranan', 'Data disulitkan'];
+const trustPoints = ['Satu ruang untuk keluarga', 'Akses berasaskan peranan', 'Data disulitkan'];
 ---
 
 <SiteLayout>
@@ -40,12 +40,12 @@ const trustPoints = ['Satu ruang untuk keluarga', 'Akses ikut peranan', 'Data di
 			<div class="hero-inner">
 				<div class="hero-copy">
 					<p class="eyebrow">Pengurusan keluarga, bersama</p>
-					<h1>Perkara keluarga, tersusun dalam satu ruang.</h1>
+					<h1>Urusan keluarga, tersusun dalam satu ruang.</h1>
 					<p class="subtitle">
-						KasihBersama membantu keluarga mengurus circle, rutin, tugasan,
-						dokumen dan penjagaan orang tersayang dengan lebih jelas.
+						KasihBersama membantu keluarga mengurus Ruang Bersama, rutin,
+						tugasan, dokumen dan penjagaan orang tersayang dengan lebih jelas.
 					</p>
-					<p class="availability">Akan datang di App Store dan Google Play</p>
+					<p class="availability">Akan tersedia di App Store dan Google Play</p>
 				</div>
 				<div class="hero-mark" aria-hidden="true">
 					<Image src={mark} alt="" width={360} height={332} priority />
@@ -59,8 +59,8 @@ const trustPoints = ['Satu ruang untuk keluarga', 'Akses ikut peranan', 'Data di
 
 		<section class="features" id="ciri-ciri" aria-labelledby="features-title">
 			<div class="section-heading">
-				<p class="eyebrow">Daripada rutin harian hingga perkara besar</p>
-				<h2 id="features-title">Satu gambaran yang boleh dikongsi seluruh keluarga.</h2>
+				<p class="eyebrow">Daripada rutin harian hingga urusan penting</p>
+				<h2 id="features-title">Satu gambaran yang boleh dikongsi oleh seluruh keluarga.</h2>
 			</div>
 			<div class="feature-list">
 				{features.map((feature) => (
